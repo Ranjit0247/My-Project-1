@@ -1,0 +1,34 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+ 
+public class LoginPageAutomation {
+    public static void main(String[] args) {
+        // Set the path to chromedriver.exe
+System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver.exe");
+ 
+        // Initialize WebDriver
+        WebDriver driver = new ChromeDriver();
+ 
+        // Navigate to the login page
+driver.get("https://example.com/login");
+ 
+        // Find the username and password input fields and enter credentials
+WebElement usernameInput = driver.findElement(By.id("username"));
+WebElement passwordInput = driver.findElement(By.id("password"));
+        
+        usernameInput.sendKeys("your_username");
+        passwordInput.sendKeys("your_password");
+ 
+        // Find and click on the login button
+        WebElement loginButton = driver.findElement(By.xpath("//button[contains(text(),'Login')]"));
+loginButton.click();
+ 
+        // Add some waiting time if necessary for the next page to load
+        // driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+ 
+        // Close the browser
+        driver.quit();
+    }
+}
